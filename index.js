@@ -5,7 +5,8 @@
       render (createElement) {
         return createElement('div', {
           attrs: {
-            class: 'fb-signin-button'
+            class: 'fb-login-button',
+            'use-continue-as': 'true'
           },
           ref: 'signinBtn'
         }, this.$slots.default)
