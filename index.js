@@ -6,7 +6,8 @@
         return createElement('div', {
           attrs: {
             class: 'fb-login-button',
-            'use-continue-as': 'true'
+            'data-use-continue-as': 'true',
+            'data-size': 'large'
           },
           ref: 'signinBtn'
         }, this.$slots.default)
