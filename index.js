@@ -23,9 +23,17 @@
       },
       mounted () {
         this.$refs.signinBtn.addEventListener('click', e => {
-          window.FB.login(response => {
-            this.$emit(response.authResponse ? 'success' : 'error', response)
-          }, this.params)
+
+          window.FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+              this.$emit('success')
+            } else {
+              window.FB.login(response => {
+                this.$emit(response.authResponse ? 'success' : 'error', response)
+              }, this.params);
+            }
+          });
+
         })
       }
     })
